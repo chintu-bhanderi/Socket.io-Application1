@@ -13,6 +13,9 @@ const io = new Server(expressServer)
 // if new user is visite then cb will call.. 
 io.on('connection', (socket)=>{
     // console.log('New user connected');
+    socket.on('chat',(msg)=>{
+        console.log(msg);
+    })
 })
 
 app.get('/',(req,res)=>{
