@@ -12,7 +12,7 @@ const io = new Server(expressServer)
 // check socket is working or not...
 // if new user is visite then cb will call.. 
 io.on('connection', (socket)=>{
-    console.log('New user connected');
+    // console.log('New user connected');
 })
 
 app.get('/',(req,res)=>{
