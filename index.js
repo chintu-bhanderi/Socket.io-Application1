@@ -14,7 +14,8 @@ const io = new Server(expressServer)
 io.on('connection', (socket)=>{
     // console.log('New user connected');
     socket.on('chat',(msg)=>{
-        console.log(msg);
+        // console.log(msg);
+        io.emit('chat_send',msg);
     })
 })
 
