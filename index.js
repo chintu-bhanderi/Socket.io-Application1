@@ -8,15 +8,16 @@ const expressServer = http.createServer(app);
 const {Server} = require('socket.io')
 const io = new Server(expressServer)
 
+io.on('connection',(socket)=>{
+    socket.join('kitchen-room');
+    io.sockets.in('kitchen-room').emit('cooking',"Rice coocking")
+    io.sockets.in('kitchen-room').emit('ingrid',"This is ingrid") 
 
-// check socket is working or not...
-// if new user is visite then cb will call.. 
-io.on('connection', (socket)=>{
-    // console.log('New user connected');
-    socket.on('chat',(msg)=>{
-        // console.log(msg);
-        io.emit('chat_send',msg);
-    })
+    socket.join('bed-room');
+    io.sockets.in('bed-room').emit('sleep',"I am sleeping")
+    io.sockets.in('bed-room').emit('rest',"I am on rest")
+    
+    
 })
 
 app.get('/',(req,res)=>{
