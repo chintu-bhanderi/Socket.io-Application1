@@ -11,7 +11,7 @@ const io = new Server(expressServer)
 io.on('connection',(socket)=>{
     socket.join('kitchen-room');
     let sizeoOfkitchen = io.sockets.adapter.rooms.get('kitchen-room').size;
-    io.sockets.in('kitchen-room').emit('cooking', 'cooking room has people is = '+sizeoOfkitchen)
+    io.sockets.in('kitchen-room').emit('cooking', 'cooking room has peoples is = '+sizeoOfkitchen)
     io.sockets.in('kitchen-room').emit('ingrid',"This is ingrid") 
 
     socket.join('bed-room');
